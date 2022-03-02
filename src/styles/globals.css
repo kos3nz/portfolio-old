@@ -1,0 +1,88 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic);
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Box sizing rules */
+  *,
+  *::before,
+  *::after {
+    @apply box-border;
+  }
+
+  /* Remove default margin */
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    @apply m-0;
+  }
+
+  /* Set core root defaults */
+  html:focus-within {
+    @apply scroll-smooth;
+  }
+
+  /* Set screen size */
+  html,
+  body {
+    @apply h-full font-lato;
+  }
+
+  /* Set core body defaults */
+  body {
+    @apply bg-slate-100 leading-6 antialiased dark:bg-slate-900;
+  }
+
+  /* Make images easier to work with */
+  img,
+  picture {
+    @apply h-full w-full object-cover;
+  }
+
+  /* A elements that don't have a class get default styles */
+  a:not([class]) {
+    text-decoration-skip-ink: auto;
+  }
+
+  /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+  ul[role='list'],
+  ol[role='list'] {
+    @apply list-none;
+  }
+
+  /* Inherit fonts for inputs and buttons */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+  @media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+      @apply scroll-auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+}
