@@ -23,30 +23,20 @@ module.exports = {
     },
   ],
   framework: '@storybook/react',
-  typescript: {
-    check: false,
-    checkOptions: {},
-    reactDocgen: 'react-docgen-typescript',
-    reactDocgenTypescriptOptions: {
-      shouldExtractLiteralValuesFromEnum: true,
-      propFilter: (prop) =>
-        prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
-    },
-  },
   webpackFinal(config) {
-    // Without'tsconfig-paths-webpack-plugin'
+    // tsconfig.json baseUrl setting
     config.resolve.modules = [
       ...(config.resolve.modules || []),
       path.resolve(__dirname, '../src'),
     ];
 
-    // With 'tsconfig-paths-webpack-plugin' and tsconfig.json baseUrl setting
-    /*
-    config.resolve.plugins = [
-      ...(config.resolve.plugins || []),
-      new TsconfigPathsPlugin(),
-    ];
-    */
+    // Add this mjs rule for storybook and framer-motion to work
+    // https://github.com/framer/motion/issues/1307
+    config.module.rules.push({
+      type: 'javascript/auto',
+      test: /\.mjs$/,
+      include: /node_modules/,
+    });
 
     /**
      * Add support for alias-imports
@@ -65,14 +55,6 @@ module.exports = {
     //   path.resolve(__dirname, '../public'),
     //   'node_modules',
     // ];
-
-    // Add this mjs rule for storybook and framer-motion to work
-    // https://github.com/framer/motion/issues/1307
-    config.module.rules.push({
-      type: 'javascript/auto',
-      test: /\.mjs$/,
-      include: /node_modules/,
-    });
 
     return config;
   },

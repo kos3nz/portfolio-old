@@ -3,32 +3,30 @@ import React from 'react';
 import { Avatar, type AvatarSizes } from 'ui/Avatar';
 
 export type AvatarListProps = {
+  /** Contains id and name, imageUrl is optional. */
   users: {
     id: string;
     name: string;
     avatarUrl?: string;
   }[];
+  /** Total number of users */
+  userCount?: number;
   size?: AvatarSizes;
-} & React.ComponentPropsWithoutRef<'ul'>;
+};
 
-// Either pass the full list of users, or a userCount if known
-export function AvatarList({
-  users,
-  size,
-  className,
-  ...props
-}: AvatarListProps) {
-  const count = users.length;
+/**
+ * - Either pass the full list of users, or a userCount if known
+ * */
+export function AvatarList({ users, size, userCount }: AvatarListProps) {
+  const count = userCount || users.length;
 
   return (
     <ul
       role="list"
-      className={clsx(
-        'relative m-0 inline-flex flex-row flex-nowrap items-center justify-end p-0 align-top',
-        className
-      )}
+      className={
+        'relative m-0 inline-flex flex-row flex-nowrap items-center justify-end p-0 align-top'
+      }
       aria-label="users"
-      {...props}
     >
       {users.slice(0, 3).map(({ id, name, avatarUrl }, index) => (
         <li
