@@ -39,7 +39,7 @@
 
   /* Set core body defaults */
   body {
-    @apply bg-slate-100 leading-6 antialiased dark:bg-slate-900;
+    @apply bg-light leading-6 antialiased dark:bg-dark;
   }
 
   /* Make images easier to work with */

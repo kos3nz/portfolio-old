@@ -4,7 +4,7 @@ const colors = require('tailwindcss/colors');
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
-    './src/components/**/*.{js,ts,jsx,tsx}',
+    './src/ui/**/*.{js,ts,jsx,tsx}',
   ],
   darkMode: 'class',
   theme: {
@@ -14,7 +14,7 @@ module.exports = {
       },
       colors: {
         primary: colors.indigo,
-        light: colors.slate[100],
+        light: colors.slate[50],
         dark: colors.slate[900],
       },
       fontFamily: {
