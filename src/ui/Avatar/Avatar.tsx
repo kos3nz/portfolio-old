@@ -6,10 +6,12 @@ export type AvatarProps = {
   username: string;
   /** The URL of the Avatar's image. */
   src?: string;
-  size?: 'sm' | 'md' | 'lg';
+  /** 3 sizes are supported. */
+  size?: AvatarSizes;
   bordered?: boolean;
-  borderColor?: 'gradient';
+  borderColor?: keyof typeof borderColors;
   backgroundColor?: string;
+  className?: string;
 };
 
 // JSDoc
@@ -17,13 +19,14 @@ export type AvatarProps = {
  - Use an avatar for attributing actions or content to specific users.
  - The user's name should always be present when using Avatar.
  */
-const Avatar = ({
+export const Avatar = ({
   username,
   src,
   size = 'lg',
   bordered = false,
   borderColor = 'gradient',
   backgroundColor = '#000',
+  className,
 }: AvatarProps) => {
   return (
     <div
@@ -33,7 +36,8 @@ const Avatar = ({
           'flex items-center justify-center',
           sizes[size].border,
           borderColors[borderColor],
-        ]
+        ],
+        className
       )}
     >
       <div className={`overflow-hidden rounded-full ${sizes[size].avatar}`}>
@@ -52,8 +56,6 @@ const Avatar = ({
   );
 };
 
-export default Avatar;
-
 const sizes = {
   sm: {
     border: 'h-9 w-9',
@@ -68,7 +70,9 @@ const sizes = {
     avatar: 'h-11 w-11',
   },
 };
+export type AvatarSizes = keyof typeof sizes;
 
 const borderColors = {
+  transparent: 'bg-light dark:bg-dark',
   gradient: 'bg-gradient-to-r from-cyan-500 to-indigo-500',
 };

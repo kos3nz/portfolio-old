@@ -1,11 +1,16 @@
 import type { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+<<<<<<< HEAD
 import Avatar from './Avatar';
 import type { AvatarProps } from './Avatar';
+=======
+import { Avatar } from '.';
+import type { AvatarProps } from '.';
+>>>>>>> create-avatar-list-component
 
 type StoryAvatar = ComponentStoryObj<typeof Avatar>;
 
 export default {
-  title: 'UI/Avatar',
+  title: 'Design System/Ui/Avatar',
   component: Avatar,
   parameters: {
     componentSubtitle:
