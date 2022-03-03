@@ -23,6 +23,16 @@ module.exports = {
     },
   ],
   framework: '@storybook/react',
+  typescript: {
+    check: false,
+    checkOptions: {},
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      propFilter: (prop) =>
+        prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
+    },
+  },
   webpackFinal(config) {
     // Without'tsconfig-paths-webpack-plugin'
     config.resolve.modules = [

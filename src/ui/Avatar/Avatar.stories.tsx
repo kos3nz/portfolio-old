@@ -1,16 +1,27 @@
 import type { ComponentMeta, ComponentStoryObj } from '@storybook/react';
 import Avatar from './Avatar';
+import type { AvatarProps } from './Avatar';
 
 type StoryAvatar = ComponentStoryObj<typeof Avatar>;
 
 export default {
   title: 'UI/Avatar',
   component: Avatar,
+  parameters: {
+    componentSubtitle:
+      'Displays an image that represents a user or organization',
+  },
 } as ComponentMeta<typeof Avatar>;
 
 // CSF 3.0
+const defaultArgs: AvatarProps = {
+  username: 'Jon',
+  size: 'lg',
+  bordered: false,
+};
+
 export const Default: StoryAvatar = {
-  args: { size: 'lg', bordered: false },
+  args: { ...defaultArgs },
 };
 
 export const Sizes: StoryAvatar = {
@@ -21,13 +32,22 @@ export const Sizes: StoryAvatar = {
       <Avatar {...args} size="lg" />
     </div>
   ),
+  args: {
+    ...defaultArgs,
+  },
+  parameters: {
+    docs: {
+      // The story now contains a description
+      storyDescription: '3 sizes are available',
+    },
+  },
 };
-Sizes.args = {};
 
 export const Bordered: StoryAvatar = {
   render: (args) => <Avatar {...args} />,
 };
 Bordered.args = {
+  ...defaultArgs,
   bordered: true,
   borderColor: 'gradient',
 };
@@ -41,6 +61,7 @@ export const Initials: StoryAvatar = {
     </div>
   ),
   args: {
+    ...defaultArgs,
     backgroundColor: '#0891b2',
   },
 };

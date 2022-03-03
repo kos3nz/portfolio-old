@@ -1,23 +1,30 @@
 import clsx from 'clsx';
 import React from 'react';
 
-type Props = {
+export type AvatarProps = {
+  /** Avatar falls back to the user's initial when no image is provided. */
+  username: string;
+  /** The URL of the Avatar's image. */
   src?: string;
-  username?: string;
   size?: 'sm' | 'md' | 'lg';
   bordered?: boolean;
   borderColor?: 'gradient';
   backgroundColor?: string;
 };
 
+// JSDoc
+/**
+ - Use an avatar for attributing actions or content to specific users.
+ - The user's name should always be present when using Avatar.
+ */
 const Avatar = ({
+  username,
   src,
-  username = 'K',
   size = 'lg',
   bordered = false,
   borderColor = 'gradient',
   backgroundColor = '#000',
-}: Props) => {
+}: AvatarProps) => {
   return (
     <div
       className={clsx(
