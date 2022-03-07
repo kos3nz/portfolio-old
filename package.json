@@ -16,7 +16,9 @@
     "framer-motion": "^6.2.8",
     "next": "12.1.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-hook-form": "^7.27.1",
+    "react-icons": "^4.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
@@ -39,6 +41,7 @@
     "prettier": "^2.5.1",
     "prettier-plugin-tailwindcss": "^0.1.8",
     "react-docgen-typescript": "^2.2.2",
+    "storybook-addon-themes": "^6.1.0",
     "tailwindcss": "^3.0.23",
     "typescript": "4.6.2"
   },

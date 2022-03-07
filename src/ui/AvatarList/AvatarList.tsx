@@ -38,13 +38,14 @@ export function AvatarList({ users, size, userCount }: AvatarListProps) {
             username={name}
             src={avatarUrl || ''}
             bordered
-            borderColor="transparent"
+            borderColor="white"
+            className="shadow-md"
           />
         </li>
       ))}
       {count > 3 && (
         <li
-          className="ml-1.5 inline-flex whitespace-nowrap text-sm text-slate-500"
+          className="ml-1.5 inline-flex whitespace-nowrap text-sm text-slate-600 dark:text-slate-200"
           aria-label={`${count - 3} more user(s)`}
         >
           &#43; {count - 3}

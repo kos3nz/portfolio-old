@@ -1,0 +1,8 @@
+:root {
+  --gradient-color-stops-1: at 100% 0%, hsla(201, 79%, 17%, 1) 0,
+    transparent 28%;
+  --gradient-color-stops-2: at 100% 0%, hsla(215, 53%, 20%, 1) 0,
+    transparent 18%;
+  --gradient-color-stops-3: at 100% 0%, hsla(256, 49%, 32%, 1) 0,
+    transparent 36%;
+}

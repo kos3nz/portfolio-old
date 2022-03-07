@@ -16,6 +16,8 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  layout: 'centered',
+  // backgrounds: { disable: true },
   // Storybook a11y addon configuration
   a11y: {
     // the target DOM element
@@ -26,4 +28,37 @@ export const parameters = {
   previewTabs: {
     'storybook/docs/panel': { index: -1 },
   },
+  // For tailwind class theme
+  themes: {
+    default: 'Dark',
+    clearable: false,
+    list: [
+      {
+        name: 'Light',
+        class: [],
+      },
+      {
+        name: 'Dark',
+        // The class dark will be added to the body tag
+        class: ['dark'],
+      },
+    ],
+  },
 };
+/*
+export const decorators = [
+  (Story) => (
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100%',
+        margin: 'auto',
+      }}
+    >
+      <Story />
+    </div>
+  ),
+];
+*/

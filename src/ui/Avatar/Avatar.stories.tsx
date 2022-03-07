@@ -1,13 +1,8 @@
 import type { ComponentMeta, ComponentStoryObj } from '@storybook/react';
-<<<<<<< HEAD
-import Avatar from './Avatar';
+import { Avatar } from './Avatar';
 import type { AvatarProps } from './Avatar';
-=======
-import { Avatar } from '.';
-import type { AvatarProps } from '.';
->>>>>>> create-avatar-list-component
 
-type StoryAvatar = ComponentStoryObj<typeof Avatar>;
+type StoryComponent = ComponentStoryObj<typeof Avatar>;
 
 export default {
   title: 'Design System/Ui/Avatar',
@@ -25,11 +20,11 @@ const defaultArgs: AvatarProps = {
   bordered: false,
 };
 
-export const Default: StoryAvatar = {
+export const Default: StoryComponent = {
   args: { ...defaultArgs },
 };
 
-export const Sizes: StoryAvatar = {
+export const Sizes: StoryComponent = {
   render: (args) => (
     <div className="flex items-center gap-x-2">
       <Avatar {...args} size="sm" />
@@ -48,7 +43,7 @@ export const Sizes: StoryAvatar = {
   },
 };
 
-export const Bordered: StoryAvatar = {
+export const Bordered: StoryComponent = {
   render: (args) => <Avatar {...args} />,
 };
 Bordered.args = {
@@ -57,7 +52,7 @@ Bordered.args = {
   borderColor: 'gradient',
 };
 
-export const Initials: StoryAvatar = {
+export const Initials: StoryComponent = {
   render: (args) => (
     <div className="flex items-center gap-x-2">
       <Avatar {...args} username="John" />

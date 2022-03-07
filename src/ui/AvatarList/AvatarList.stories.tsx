@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
 import { AvatarListProps } from '.';
 import { AvatarList } from './AvatarList';
 
-type StoryAvatar = ComponentStoryObj<typeof AvatarList>;
+type StoryComponent = ComponentStoryObj<typeof AvatarList>;
 
 export default {
   title: 'Design System/Ui/AvatarList',
@@ -38,13 +38,13 @@ const defaultArgs: AvatarListProps = {
   size: 'md',
 };
 
-export const Default: StoryAvatar = { args: { ...defaultArgs } };
+export const Default: StoryComponent = { args: { ...defaultArgs } };
 
-export const Short: StoryAvatar = {
+export const Short: StoryComponent = {
   args: { ...defaultArgs, users: defaultArgs.users.slice(0, 2) },
 };
 
-export const Ellipsized: StoryAvatar = {
+export const Ellipsized: StoryComponent = {
   args: {
     ...defaultArgs,
     users: [
@@ -57,14 +57,14 @@ export const Ellipsized: StoryAvatar = {
   },
 };
 
-export const BigUserCount: StoryAvatar = {
+export const BigUserCount: StoryComponent = {
   args: {
     ...defaultArgs,
     userCount: 100,
   },
 };
 
-export const Empty: StoryAvatar = {
+export const Empty: StoryComponent = {
   args: {
     users: [],
   },

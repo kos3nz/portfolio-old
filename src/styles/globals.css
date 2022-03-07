@@ -1,15 +1,14 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic);
-
+@import url(./_variables.css);
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  /* Box sizing rules */
+  /* Box sizing rules and text color*/
   *,
   *::before,
   *::after {
-    @apply box-border;
+    @apply box-border text-dark caret-dark dark:text-light dark:caret-light;
   }
 
   /* Remove default margin */
@@ -33,12 +32,21 @@
 
   /* Set screen size */
   html,
-  body {
-    @apply h-full font-lato;
+  body,
+  #root,
+  #__next {
+    @apply h-full w-full;
+  }
+
+  /* Set font family */
+  html {
+    @apply font-lato;
   }
 
   /* Set core body defaults */
-  body {
+  body,
+  #root,
+  #__next {
     @apply bg-light leading-6 antialiased dark:bg-dark;
   }
 
@@ -57,6 +65,21 @@
   ul[role='list'],
   ol[role='list'] {
     @apply list-none;
+  }
+
+  /* Input styles */
+  input,
+  textarea {
+    @apply placeholder-dark/50 dark:placeholder-light/50;
+  }
+
+  /* make the native arrow invisible and stretch it over the whole field so you can click anywhere in the input field to trigger the native datepicker*/
+  input[type='date']::-webkit-calendar-picker-indicator {
+    @apply absolute left-0 top-0 m-0 h-full w-full cursor-pointer p-0 opacity-0;
+  }
+
+  input[type='time']::-webkit-calendar-picker-indicator {
+    @apply absolute left-0 top-0 m-0 h-full w-full cursor-pointer p-0 opacity-0;
   }
 
   /* Inherit fonts for inputs and buttons */
@@ -85,4 +108,13 @@
 }
 
 @layer components {
+  .button-link {
+    @apply text-sm font-semibold text-primary-400 underline;
+  }
+  .error-state {
+    @apply mt-2 text-center font-semibold text-error-500;
+  }
+}
+
+@layer utilities {
 }

@@ -73,6 +73,6 @@ const sizes = {
 export type AvatarSizes = keyof typeof sizes;
 
 const borderColors = {
-  transparent: 'bg-light dark:bg-dark',
+  white: 'bg-slate-100',
   gradient: 'bg-gradient-to-r from-cyan-500 to-indigo-500',
 };
