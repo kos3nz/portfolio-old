@@ -112,6 +112,9 @@
 }
 
 @layer components {
+  .cta-button {
+    @apply flex w-full items-center justify-center gap-x-2 rounded-md bg-primary-500 py-2 font-semibold text-light/90 duration-200 hover:bg-primary-600;
+  }
   .button-link {
     @apply text-sm font-semibold text-primary-500 underline dark:text-primary-400;
   }

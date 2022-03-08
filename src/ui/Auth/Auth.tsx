@@ -6,7 +6,7 @@ import { Form } from './Form';
 export const Auth = ({ animated }: AuthProps) => {
   return (
     <motion.div
-      className="w-full max-w-lg rounded-md border border-dark/10 bg-transparent px-6 py-8 dark:border-light/30"
+      className="w-full max-w-lg rounded-md border border-dark/10 bg-transparent py-8 px-3 dark:border-light/30 sm:px-6"
       variants={animated ? variants : undefined}
       animate="animate"
       initial="initial"
@@ -33,5 +33,5 @@ const variants: Variants = {
 
 // Types
 export type AuthProps = {
-  animated: boolean;
+  animated?: boolean;
 };

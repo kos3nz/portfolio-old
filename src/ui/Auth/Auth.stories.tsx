@@ -45,20 +45,12 @@ export const FilledPassword: PlayStoryComponent = {
     });
 
     await userEvent.type(passwordInput, 'examplePassword', { delay: 100 });
-  },
-};
 
-export const TogglePassword: PlayStoryComponent = {
-  play: async (context) => {
-    await sleep(1000);
-
-    await FilledPassword.play(context);
+    await sleep(500);
 
     const showPasswordBtn = screen.getByLabelText('Show password', {
       selector: 'button',
     });
-
-    await sleep(500);
 
     await userEvent.click(showPasswordBtn);
 
@@ -92,9 +84,7 @@ export const SubmittedForm: PlayStoryComponent = {
   play: async () => {
     await sleep(1000);
 
-    const submit = screen.getByLabelText('Sign in', {
-      selector: 'button',
-    });
+    const submit = screen.getByTitle('CTA');
 
     await userEvent.click(submit);
   },
@@ -104,7 +94,7 @@ export const ProperlySubmittedSignInForm: PlayStoryComponent = {
   play: async (context) => {
     await FilledEmail.play(context);
 
-    await TogglePassword.play(context);
+    await FilledPassword.play(context);
 
     await ToggleCheckbox.play(context);
 
@@ -133,7 +123,7 @@ export const WronglySubmittedSignUpForm: PlayStoryComponent = {
 
     await FilledEmail.play(context);
 
-    await TogglePassword.play(context);
+    await FilledPassword.play(context);
 
     await sleep(500);
 
@@ -174,7 +164,7 @@ export const ProperlySubmittedSignUpForm: PlayStoryComponent = {
 
     await FilledEmail.play(context);
 
-    await TogglePassword.play(context);
+    await FilledPassword.play(context);
 
     await sleep(500);
 

@@ -4,8 +4,10 @@ import { HiOutlineMail } from 'react-icons/hi';
 import { Input } from 'ui/Input';
 import { Checkbox } from 'ui/Checkbox';
 import { useValidations } from 'hooks';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { FormContext } from '../Form';
+import { Animation } from 'ui/Animation';
+import { sleep } from 'utils/functions';
 
 export const SignIn = ({}: SignInProps) => {
   const context = useContext(FormContext);
@@ -13,6 +15,12 @@ export const SignIn = ({}: SignInProps) => {
   if (context === undefined) {
     throw new Error('SignIn must be used within Form component');
   }
+
+  const [status, setStatus] = useState<'idle' | 'loading' | 'completed'>(
+    'idle'
+  );
+  const loading = status === 'loading';
+  const completed = status === 'completed';
 
   const {
     methods: {
@@ -28,6 +36,18 @@ export const SignIn = ({}: SignInProps) => {
   const onSubmit = handleSubmit(async ({ email, password }) => {
     console.log({ email });
     console.log({ password });
+    try {
+      setStatus('loading');
+
+      // do something
+      await sleep(2000);
+
+      setStatus('completed');
+    } catch (error) {
+      // set error state and show the bottom of the component
+    } finally {
+      // set status idle
+    }
   });
 
   return (
@@ -52,6 +72,7 @@ export const SignIn = ({}: SignInProps) => {
       {errors.password && (
         <p className="error-state">{errors.password.message}</p>
       )}
+
       <div className="mt-6 flex items-center justify-between">
         <Checkbox label="Remember me" />
         <button
@@ -63,17 +84,29 @@ export const SignIn = ({}: SignInProps) => {
           Forgot your password?
         </button>
       </div>
+
       <div className="mt-6">
         <button
           type="submit"
           aria-label="Sign in"
-          title="Sign in"
-          className="flex w-full items-center justify-center gap-x-2 rounded-md bg-primary-500 py-2 font-semibold text-light/90 duration-200 hover:bg-primary-600"
+          title="CTA"
+          className="cta-button"
         >
-          <AiFillLock className="h-5 w-5 fill-light/90" />
-          Sign in
+          {loading ? (
+            <Animation.Spin />
+          ) : completed ? (
+            <>
+              <span>Success!</span>
+            </>
+          ) : (
+            <>
+              <AiFillLock className="h-5 w-5 fill-light/90" />
+              <span>Sign in</span>
+            </>
+          )}
         </button>
       </div>
+
       <div className="mt-6 flex flex-col items-center space-y-2">
         <button
           type="button"
