@@ -1,4 +1,4 @@
-import { motion, Variant, Variants } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { Divider } from 'ui/Divider';
 import { Providers } from './Providers';
 import { Form } from './Form';
@@ -6,7 +6,7 @@ import { Form } from './Form';
 export const Auth = () => {
   return (
     <motion.div
-      className="w-full max-w-lg rounded-md border border-slate-700 bg-transparent px-6 py-8"
+      className="w-full max-w-lg rounded-md border border-dark/10 bg-transparent px-6 py-8 dark:border-light/30"
       variants={variants}
       animate="animate"
       initial="initial"

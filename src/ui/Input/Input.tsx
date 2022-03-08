@@ -35,7 +35,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             'hover:ring-2 hover:ring-primary-400': !underlined && !disabled,
             'ring-2 ring-primary-400': !underlined && focus,
             // Bordered
-            'ring-1 ring-light/30': bordered && !focus,
+            'ring-1 ring-dark/20 dark:ring-light/30': bordered && !focus,
             // Underlined
             'rounded-none bg-transparent': underlined,
             // Disabled
@@ -48,7 +48,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       >
         {underlined && (
           <>
-            <span className="absolute bottom-0 h-[2px] w-full bg-light/40" />
+            <span className="absolute bottom-0 h-[2px] w-full bg-dark/20 dark:bg-light/40" />
             {!disabled && (
               <span
                 className={clsx(
@@ -67,9 +67,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           <span className="relative z-10 ml-2 flex items-center justify-center">
             <ContentLeft
               className={clsx('h-6 w-6', contentLeftStyle, {
-                'fill-light/50': !focus && contentLeftStyle?.includes('fill'),
+                'fill-dark/20 dark:fill-light/50':
+                  !focus && contentLeftStyle?.includes('fill'),
                 'fill-primary-400': focus && contentLeftStyle?.includes('fill'),
-                'stroke-light/50':
+                'fill-light/10 stroke-dark/20 dark:stroke-light/50':
                   !focus && contentLeftStyle?.includes('stroke'),
                 'stroke-primary-400':
                   focus && contentLeftStyle?.includes('stroke'),
@@ -83,8 +84,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             <label
               htmlFor={name}
               className={clsx('absolute left-2 duration-200 ease-out', {
-                'text-light/50': !focus,
-                '-translate-y-9 scale-90 text-primary-400': focus || value,
+                'text-dark/40 dark:text-light/50': !focus,
+                '-translate-y-9 scale-90 text-primary-500 dark:text-primary-400':
+                  focus || value,
                 '-translate-x-10': (focus || value) && ContentLeft,
               })}
             >
@@ -96,12 +98,13 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             name={name}
             id={name}
             type={type}
+            aria-labelledby={name}
             placeholder={labelPlaceholder ? '' : placeholder}
             tabIndex={disabled ? -1 : 0}
             disabled={disabled}
             value={value}
             onFocus={() => setFocus(true)}
-            className="relative w-full bg-transparent p-2 outline-none disabled:cursor-not-allowed"
+            className="relative w-full bg-transparent py-2 px-3 outline-none disabled:cursor-not-allowed"
             {...registration}
             onBlur={(event) => {
               setFocus(false);

@@ -90,9 +90,9 @@ export const SignUp = ({}: SignUpProps) => {
           type="submit"
           aria-label="Sign in"
           title="Sign in"
-          className="flex w-full items-center justify-center gap-x-2 rounded-md bg-primary-500 py-2 font-semibold duration-200 hover:bg-primary-600"
+          className="flex w-full items-center justify-center gap-x-2 rounded-md bg-primary-500 py-2 font-semibold text-light/90 duration-200 hover:bg-primary-600"
         >
-          <AiFillLock className="h-5 w-5" />
+          <AiFillLock className="h-5 w-5 fill-light/90" />
           Sign in
         </button>
       </div>

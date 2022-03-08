@@ -41,14 +41,14 @@ export const InputPassword = ({
       {type === 'password' ? (
         <AiOutlineEye
           className={clsx(
-            'fill-light/50 group-focus:fill-primary-400 dark:group-focus:fill-primary-300',
+            'fill-dark/20 group-focus:fill-primary-400 dark:fill-light/50 dark:group-focus:fill-primary-300',
             className
           )}
         />
       ) : (
         <AiOutlineEyeInvisible
           className={clsx(
-            'fill-light/50 group-focus:fill-primary-400 dark:group-focus:fill-primary-300',
+            'fill-dark/20 group-focus:fill-primary-400 dark:fill-light/50 dark:group-focus:fill-primary-300',
             className
           )}
         />

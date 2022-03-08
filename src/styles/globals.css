@@ -67,10 +67,14 @@
     @apply list-none;
   }
 
+  pre {
+    @apply whitespace-pre-wrap break-words;
+  }
+
   /* Input styles */
   input,
   textarea {
-    @apply placeholder-dark/50 dark:placeholder-light/50;
+    @apply placeholder-dark/40 dark:placeholder-light/50;
   }
 
   /* make the native arrow invisible and stretch it over the whole field so you can click anywhere in the input field to trigger the native datepicker*/
@@ -109,7 +113,7 @@
 
 @layer components {
   .button-link {
-    @apply text-sm font-semibold text-primary-400 underline;
+    @apply text-sm font-semibold text-primary-500 underline dark:text-primary-400;
   }
   .error-state {
     @apply mt-2 text-center font-semibold text-error-500;

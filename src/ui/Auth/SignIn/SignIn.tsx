@@ -53,7 +53,7 @@ export const SignIn = ({}: SignInProps) => {
         <p className="error-state">{errors.password.message}</p>
       )}
       <div className="mt-6 flex items-center justify-between">
-        <Checkbox label="Remember me" lightingEffect />
+        <Checkbox label="Remember me" />
         <button
           type="button"
           aria-label="Switch to reset password"
@@ -68,9 +68,9 @@ export const SignIn = ({}: SignInProps) => {
           type="submit"
           aria-label="Sign in"
           title="Sign in"
-          className="flex w-full items-center justify-center gap-x-2 rounded-md bg-primary-500 py-2 font-semibold duration-200 hover:bg-primary-600"
+          className="flex w-full items-center justify-center gap-x-2 rounded-md bg-primary-500 py-2 font-semibold text-light/90 duration-200 hover:bg-primary-600"
         >
-          <AiFillLock className="h-5 w-5" />
+          <AiFillLock className="h-5 w-5 fill-light/90" />
           Sign in
         </button>
       </div>

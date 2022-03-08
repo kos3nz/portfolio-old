@@ -65,7 +65,7 @@ export const Checkbox = ({
         <label
           htmlFor={label}
           className={clsx('text-sm font-semibold', {
-            'cursor-pointer text-dark/90 dark:text-light/90 ': !(
+            'cursor-pointer text-dark/80 dark:text-light/90 ': !(
               (line && checked) ||
               disabled
             ),

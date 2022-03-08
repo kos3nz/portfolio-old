@@ -40,10 +40,10 @@ export const Default: StoryComponent = {
   args: { ...defaultArgs },
   render: (args) => (
     <>
-      <Input {...args} placeholder="Username" />
-      <Input {...args} labelPlaceholder="Email" />
-      <Input.Password {...args} labelPlaceholder="Password" />
-      <Input {...args} labelPlaceholder="Disabled" disabled />
+      <Input {...args} name="username" placeholder="Username" />
+      <Input {...args} name="email" labelPlaceholder="Email" />
+      <Input.Password {...args} name="password" labelPlaceholder="Password" />
+      <Input {...args} name="disabled" labelPlaceholder="Disabled" disabled />
     </>
   ),
 };
@@ -52,10 +52,15 @@ export const Bordered: StoryComponent = {
   args: { ...defaultArgs, bordered: true },
   render: (args) => (
     <>
-      <Input {...args} placeholder="Username" />
-      <Input {...args} labelPlaceholder="Email" />
-      <Input.Password {...args} labelPlaceholder="Password" />
-      <Input {...args} labelPlaceholder="Disabled" disabled />
+      <Input {...args} name="username" placeholder="Username" />
+      <Input {...args} name="email" labelPlaceholder="Email" />
+      <Input.Password {...args} name="password" labelPlaceholder="Password" />
+      <Input
+        {...args}
+        name="disabled"
+        labelPlaceholder="Disabled"
+        disabled
+      />{' '}
     </>
   ),
 };
@@ -64,10 +69,15 @@ export const Underlined: StoryComponent = {
   args: { ...defaultArgs, underlined: true },
   render: (args) => (
     <>
-      <Input {...args} placeholder="Username" />
-      <Input {...args} labelPlaceholder="Email" />
-      <Input.Password {...args} labelPlaceholder="Password" />
-      <Input {...args} labelPlaceholder="Disabled" disabled />
+      <Input {...args} name="username" placeholder="Username" />
+      <Input {...args} name="email" labelPlaceholder="Email" />
+      <Input.Password {...args} name="password" labelPlaceholder="Password" />
+      <Input
+        {...args}
+        name="disabled"
+        labelPlaceholder="Disabled"
+        disabled
+      />{' '}
     </>
   ),
 };
@@ -78,24 +88,28 @@ export const WithContent: StoryComponent = {
     <>
       <Input
         {...args}
+        name="username"
         placeholder="Username"
         ContentLeft={AiOutlineUser}
         contentLeftStyle="fill"
       />
       <Input
         {...args}
+        name="email"
         labelPlaceholder="Email"
         ContentLeft={HiOutlineMail}
         contentLeftStyle="stroke"
       />
       <Input.Password
         {...args}
+        name="password"
         labelPlaceholder="Password"
         ContentLeft={BiKey}
         contentLeftStyle="fill"
       />
       <Input
         {...args}
+        name="email-disabled"
         labelPlaceholder="Email"
         ContentLeft={HiOutlineMail}
         contentLeftStyle="stroke"
@@ -104,6 +118,7 @@ export const WithContent: StoryComponent = {
 
       <Input.Password
         {...args}
+        name="password-disabled"
         labelPlaceholder="Disabled"
         disabled
         ContentLeft={BiKey}
