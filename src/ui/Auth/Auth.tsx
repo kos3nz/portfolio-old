@@ -3,11 +3,11 @@ import { Divider } from 'ui/Divider';
 import { Providers } from './Providers';
 import { Form } from './Form';
 
-export const Auth = () => {
+export const Auth = ({ animated }: AuthProps) => {
   return (
     <motion.div
       className="w-full max-w-lg rounded-md border border-dark/10 bg-transparent px-6 py-8 dark:border-light/30"
-      variants={variants}
+      variants={animated ? variants : undefined}
       animate="animate"
       initial="initial"
     >
@@ -29,4 +29,9 @@ const variants: Variants = {
       // staggerChildren: 0.1,
     },
   },
+};
+
+// Types
+export type AuthProps = {
+  animated: boolean;
 };

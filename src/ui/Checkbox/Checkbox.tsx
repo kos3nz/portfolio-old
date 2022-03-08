@@ -15,6 +15,7 @@ export const Checkbox = ({
     <div className={'group relative flex max-w-max items-center gap-2'}>
       <input
         id={label}
+        aria-label={label}
         type="checkbox"
         onChange={(event) => setChecked(event.target.checked)}
         disabled={disabled}
@@ -40,7 +41,9 @@ export const Checkbox = ({
         disabled={disabled}
         tabIndex={disabled ? -1 : 0}
         className={clsx(
-          'relative flex h-[18px] w-[18px] items-center justify-center rounded-md outline-none ring-1 ring-dark/20 transition duration-200 focus:ring-primary-300 group-hover:ring-primary-300 disabled:group-hover:ring-light/40 dark:ring-light/40',
+          'relative flex h-[18px] w-[18px] items-center justify-center rounded-md outline-none ring-1 ring-dark/20 duration-200 dark:ring-light/40',
+          'group-hover:ring-2 group-hover:ring-primary-400 disabled:group-hover:ring-light/40 dark:group-hover:ring-primary-300 ',
+          'focus:ring-2 focus:ring-primary-400 dark:focus:ring-primary-300',
           {
             'bg-transparent': !checked,
             'bg-primary-500': checked,
@@ -64,6 +67,7 @@ export const Checkbox = ({
       {label && (
         <label
           htmlFor={label}
+          aria-label={label}
           className={clsx('text-sm font-semibold', {
             'cursor-pointer text-dark/80 dark:text-light/90 ': !(
               (line && checked) ||

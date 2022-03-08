@@ -35,8 +35,8 @@ export const InputPassword = ({
       className={clsx('group outline-none', { 'cursor-not-allowed': disabled })}
       onClick={showPassword}
       disabled={disabled}
-      title={type === 'password' ? 'Show password' : 'Hide password'}
-      aria-label={type === 'password' ? 'Show password' : 'Hide password'}
+      title={type === 'password' ? `Show ${name}` : `Hide ${name}`}
+      aria-label={type === 'password' ? `Show ${name}` : `Hide ${name}`}
     >
       {type === 'password' ? (
         <AiOutlineEye

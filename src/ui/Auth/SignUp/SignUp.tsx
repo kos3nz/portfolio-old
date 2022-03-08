@@ -29,7 +29,7 @@ export const SignUp = ({}: SignUpProps) => {
   } = useValidations(['username', 'email', 'password', 'passwordConfirmation']);
 
   const onSubmit = handleSubmit(
-    ({ username, email, password, passwordConfirmation }) => {
+    async ({ username, email, password, passwordConfirmation }) => {
       console.log({ username });
       console.log({ email });
       console.log({ password });

@@ -18,6 +18,10 @@ export default {
   ],
 } as ComponentMeta<typeof Form>;
 
-export const Default: StoryComponent = {
+export const SignIn: StoryComponent = {
   args: {},
+};
+
+export const SignUp: StoryComponent = {
+  args: { type: 'signUp' },
 };

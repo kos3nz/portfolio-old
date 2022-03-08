@@ -16,8 +16,8 @@ export const FormContext = createContext<FormContextProps | undefined>(
   undefined
 );
 
-export const Form = ({}: FormProps) => {
-  const [auth, setAuth] = useState<AuthType>('signIn');
+export const Form = ({ type }: FormProps) => {
+  const [auth, setAuth] = useState<AuthType>(type || 'signIn');
 
   return (
     <FormContext.Provider value={{ setAuth }}>
@@ -34,7 +34,9 @@ type FormContextProps = {
   setAuth: Dispatch<SetStateAction<AuthType>>;
 };
 
-export type FormProps = {};
+export type FormProps = {
+  type?: AuthType;
+};
 
 /* ==============================
 TODO:= Form element

@@ -25,7 +25,7 @@ export const SignIn = ({}: SignInProps) => {
     // { mode: 'onBlur' }
   );
 
-  const onSubmit = handleSubmit(({ email, password }) => {
+  const onSubmit = handleSubmit(async ({ email, password }) => {
     console.log({ email });
     console.log({ password });
   });
@@ -37,7 +37,7 @@ export const SignIn = ({}: SignInProps) => {
         contentLeftStyle="stroke"
         labelPlaceholder="Email"
         name="email"
-        // bordered
+        underlined
         registration={emailRegistration}
       />
       {errors.email && <p className="error-state">{errors.email.message}</p>}
@@ -46,7 +46,7 @@ export const SignIn = ({}: SignInProps) => {
         contentLeftStyle="fill"
         labelPlaceholder="Password"
         name="password"
-        // bordered
+        underlined
         registration={passwordRegistration}
       />
       {errors.password && (

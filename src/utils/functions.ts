@@ -42,6 +42,11 @@ export const removeSymbols = (str: string) => {
 };
 // keep only characters, numbers, and spaces
 
+// Function to emulate pausing between interactions
+export function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 /*
 import { json } from 'remix';
 export function badRequest<T>(data: T) {
