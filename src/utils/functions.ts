@@ -46,10 +46,3 @@ export const removeSymbols = (str: string) => {
 export function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
-
-/*
-import { json } from 'remix';
-export function badRequest<T>(data: T) {
-  return json(data, { status: 400 });
-}
-*/

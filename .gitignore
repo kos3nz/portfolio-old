@@ -36,3 +36,10 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# Contentlayer
+.contentlayer
+
+# local
+memo.md
+.vscode

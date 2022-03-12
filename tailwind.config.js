@@ -15,7 +15,7 @@ module.exports = {
       colors: {
         light: colors.slate[50],
         dark: colors.slate[900],
-        primary: colors.indigo,
+        primary: colors.cyan,
         success: colors.emerald,
         error: colors.rose,
       },

@@ -1,0 +1,26 @@
+import Head from 'next/head';
+import { Auth } from 'ui/Auth';
+
+export const meta = {
+  title: 'MDX',
+};
+
+<Head>
+  <title>{meta.title}</title>
+</Head>
+
+# Hello {meta.title}
+
+```tsx
+const MDX = 'This is test mdx page';
+
+export function MDX(params) {
+  return <div>MDX test</div>;
+}
+```
+
+export default ({ children }) => (
+  <div className="flex h-full w-full flex-col items-center justify-center gap-4 overflow-hidden px-4">
+    {children}
+  </div>
+);
