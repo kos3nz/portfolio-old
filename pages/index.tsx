@@ -63,6 +63,12 @@ const Home: NextPage<{ ui: UI }> = ({ ui }) => {
                             : 'text-light/50 hover:bg-light/[0.12] hover:text-light'
                         )
                       }
+                      title={
+                        category === 'preview' ? 'View component' : 'View code'
+                      }
+                      aria-label={
+                        category === 'preview' ? 'View component' : 'View code'
+                      }
                     >
                       {({ selected }) => (
                         <>
@@ -115,6 +121,8 @@ const Home: NextPage<{ ui: UI }> = ({ ui }) => {
                           setCopied(false);
                         }, 2000);
                       }}
+                      aria-label="Copy code"
+                      title="Copy code"
                     >
                       <ClipboardListIcon
                         className={clsx(

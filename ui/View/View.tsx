@@ -28,14 +28,14 @@ export const View = ({ padded, controllable, children }: ViewProps) => {
         }
       )}
     >
-      <div className="flex items-center justify-between border-b border-slate-600  px-4 py-3">
-        <ul className="flex gap-x-4">
-          <li className="h-3 w-3 rounded-full bg-red-400" />
-          <li className="h-3 w-3 rounded-full bg-yellow-400" />
-          <li className="h-3 w-3 rounded-full bg-green-400" />
-        </ul>
+      {controllable && (
+        <div className="flex items-center justify-between border-b border-slate-600  px-4 py-3">
+          <ul className="flex gap-x-4">
+            <li className="h-3 w-3 rounded-full bg-red-400" />
+            <li className="h-3 w-3 rounded-full bg-yellow-400" />
+            <li className="h-3 w-3 rounded-full bg-green-400" />
+          </ul>
 
-        {controllable && (
           <div className="flex items-center gap-x-4">
             <button onClick={() => setViewport('mobile')}>
               <DeviceMobileIcon
@@ -62,8 +62,8 @@ export const View = ({ padded, controllable, children }: ViewProps) => {
               />
             </button>
           </div>
-        )}
-      </div>
+        </div>
+      )}
 
       <ViewContext.Provider value={{ viewport }}>
         <div
