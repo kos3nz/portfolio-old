@@ -1,9 +1,9 @@
 import { useState } from 'react';
+import clsx from 'clsx';
 import SyntaxHighlighter, {
   type SyntaxHighlighterProps,
 } from 'react-syntax-highlighter';
 import { nord } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
-import clsx from 'clsx';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { DuplicateIcon } from '@heroicons/react/outline';
 
@@ -20,7 +20,8 @@ export const CodeBlock = ({
     <div
       className={clsx(
         'group',
-        'relative w-full rounded-lg dark:border dark:border-slate-600'
+        'relative w-full rounded-lg dark:border dark:border-slate-600',
+        'overflow-hidden'
       )}
     >
       <CopyToClipboard
@@ -58,8 +59,8 @@ export const CodeBlock = ({
       <SyntaxHighlighter
         language={language}
         style={nord}
-        showLineNumbers
         codeTagProps={{ className: 'text-sm' }}
+        // showLineNumbers
         {...props}
       >
         {code}

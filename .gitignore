@@ -42,4 +42,4 @@ yarn-error.log*
 
 # local
 memo.md
-.vscode
+/.vscode/

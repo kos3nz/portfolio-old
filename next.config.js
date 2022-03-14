@@ -1,22 +1,10 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-};
-
-const withMDX = require('@next/mdx')({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [],
-    rehypePlugins: [],
-    // If you use `MDXProvider`, uncomment the following line.
-    providerImportSource: '@mdx-js/react',
-  },
+const { withContentlayer } = require('next-contentlayer');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
 });
 
+/** @type {import('next').NextConfig} */
 module.exports = {
-  ...nextConfig,
-  ...withMDX({
-    // Append the default value with md extensions
-    pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-  }),
+  ...withContentlayer()({ reactStrictMode: true }),
+  ...withBundleAnalyzer({}),
 };

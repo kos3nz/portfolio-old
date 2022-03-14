@@ -1,3 +1,4 @@
+@import url(./prism.css);
 @import url(./_variables.css);
 @tailwind base;
 @tailwind components;
@@ -79,11 +80,6 @@
     @apply list-none;
   }
 
-  pre {
-    /* @apply whitespace-pre-wrap break-words; */
-    @apply overflow-auto;
-  }
-
   /* Input styles */
   input,
   textarea {
@@ -133,6 +129,9 @@
   }
   .error-state {
     @apply mt-2 text-center font-semibold text-error-500;
+  }
+  .anchor {
+    @apply block h-3 w-3 bg-purple-500;
   }
 }
 
